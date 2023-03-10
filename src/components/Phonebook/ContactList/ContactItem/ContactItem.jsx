@@ -1,18 +1,18 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts-slice';
+import { fetchDeleteContact } from 'redux/operations';
 
 import PropTypes from 'prop-types';
 
 import styles from '../../phonebook.module.scss';
 
-const ContactItem = ({ name, nameId, number }) => {
+const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
 
   return (
     <li className={styles.blockItem}>
-      {name}: {number}
+      {name}: {phone}
       <button
-        onClick={() => dispatch(deleteContact(nameId))}
+        onClick={() => dispatch(fetchDeleteContact(id))}
         type="button"
         className={styles.btnDelete}
       >
@@ -26,6 +26,6 @@ export default ContactItem;
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  nameId: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };

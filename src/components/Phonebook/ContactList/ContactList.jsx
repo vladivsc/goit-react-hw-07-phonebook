@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import styles from '../phonebook.module.scss';
-
 import { getContacts, getFilter } from 'redux/selectors';
 import ContactItem from './ContactItem/ContactItem';
+
+import styles from '../phonebook.module.scss';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
@@ -22,10 +22,8 @@ const ContactList = () => {
       {contacts.length === 0 ? (
         <p>Contacts list is empty!</p>
       ) : (
-        filterContacts.map(({ id, name, number }) => {
-          return (
-            <ContactItem key={id} name={name} number={number} nameId={id} />
-          );
+        filterContacts.map(({ id, name, phone }) => {
+          return <ContactItem key={id} id={id} name={name} phone={phone} />;
         })
       )}
     </ul>

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter-slice';
+
 import styles from '../phonebook.module.scss';
 
 const ContactFilter = () => {

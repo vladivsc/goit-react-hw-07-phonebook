@@ -1,3 +1,3 @@
-export const getContacts = ({ contacts }) => contacts;
+export const getContacts = ({ contacts }) => contacts.items;
 
 export const getFilter = ({ filter }) => filter;
